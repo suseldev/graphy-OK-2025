@@ -19,7 +19,7 @@ To guide heuristic algorithms during graph construction, a numerical score is as
 
 ## Heuristic algorithms
 ### Random (`src/heuristic_random.c`)
-1) We start from the random tree to guarantee connectivity. This is done by iteratively connecting each vertex i (`i=1, ..., n-1`) to a randomly chosen vertex (`0, ..., i-1`)
+1) We start from the random tree to guarantee connectivity. This is done by iteratively connecting each vertex i (`i=0, ..., n-1`) to a randomly chosen vertex (`0, ..., i-1`)
 
 2) While the number of edges is smaller than `k`, random pairs of distinct vertices is selected. If an edge does not already exist, it is added to the graph.
 
