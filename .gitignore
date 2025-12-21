@@ -1,0 +1,11 @@
+build/
+bin/
+*.o
+*.a
+*.so
+
+tmp/
+temp/
+
+mkdocs.yml
+.venv
