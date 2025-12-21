@@ -91,7 +91,7 @@ Returns `true` if an edge was successfuly added, `false` otherwise.
 ## Heuristics Random (`include/heuristics_random.h`)
 - `Graph *heuristicsRandomGenerateGraph(int n, int k)`:  Generates a connected graph with `n` vertices and `k` edges using the algorithm described in [algorithms](algorithms.md) section. Returns: a pointer to a generated graph or `NULL` if graph generation fails.
 
-- `Graph *heuristicsRandomGreedyGenerateIntegralGraph(int n, int k, double pRand)`: Repeatedly generates graphs using the `heuristicRandomGenerateGraph` until a spectrally integral graph is found. Returns: a pointer to a spectrally integral graph or `NULL` if graph generation fails.
+- `Graph *heuristicsRandomGenerateIntegralGraph(int n, int k, double pRand)`: Repeatedly generates graphs using the `heuristicRandomGenerateGraph` until a spectrally integral graph is found. Returns: a pointer to a spectrally integral graph or `NULL` if graph generation fails.
 
 ## IO (`include/io.h`)
 - `void graphWriteToGraph6(const Graph *g, FILE *outputFile)`: Exports the graph `g` to the `outputFile` in graph6 format.
