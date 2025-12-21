@@ -563,7 +563,7 @@
 <p><code>NON_INTEGRAL_PENALTY</code> can be modified in <code>include/constants.h</code> file.</p>
 <h2 id="heuristic-algorithms">Heuristic algorithms</h2>
 <h3 id="random-srcheuristic_randomc">Random (<code>src/heuristic_random.c</code>)</h3>
-<p>1) We start from the random tree to guarantee connectivity. This is done by iteratively connecting each vertex i (<code>i=1, ..., n-1</code>) to a randomly chosen vertex (<code>0, ..., i-1</code>)</p>
+<p>1) We start from the random tree to guarantee connectivity. This is done by iteratively connecting each vertex i (<code>i=0, ..., n-1</code>) to a randomly chosen vertex (<code>0, ..., i-1</code>)</p>
 <p>2) While the number of edges is smaller than <code>k</code>, random pairs of distinct vertices is selected. If an edge does not already exist, it is added to the graph.</p>
 <p>3) If integrality checking is enabled, the selected graph is tested for spectral integrality.</p>
 <h3 id="greedy-srcheuristic_greedyc">Greedy (<code>src/heuristic_greedy.c</code>)</h3>
