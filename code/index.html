@@ -413,6 +413,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#heuristics-evo-includeheuristics_evoh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heuristics Evo (include/heuristics_evo.h)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#heuristics-greedy-includeheuristics_greedyh" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -607,6 +618,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#heuristics-evo-includeheuristics_evoh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heuristics Evo (include/heuristics_evo.h)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#heuristics-greedy-includeheuristics_greedyh" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -703,6 +725,12 @@
 <p><code>outFile</code> (<code>const char *</code>): Path to the output file. If <code>NULL</code>, output is written to standard output</p>
 </li>
 <li>
+<p><code>populationSize</code> (<code>int</code>): Parameter used by evolutionary algorithm. Ignored by all other algorithms.</p>
+</li>
+<li>
+<p><code>generations</code> (<code>int</code>): Parameter used by evolutionary algorithm. Ignored by all other algorithms.</p>
+</li>
+<li>
 <p><code>CliConfig cliParse(int argc, char **argv)</code>: Parses command line arguments and returns populated CliConfig structure. Parameters <code>argc</code> and <code>argv</code> are argument count and argument vector passed to main. Returns fully initialized CliConfig structure. This function should terminate the program with an error message on invalid input.</p>
 </li>
 </ul>
@@ -718,9 +746,13 @@
 <li>
 <p><code>false</code>: All generated graphs are returned without internal verification. This mode is intended for external post-processing (for example piping the output to tools such as <code>sito5</code>).</p>
 </li>
-<li>
-<p><code>QUIET</code> (<code>bool</code>):</p>
-</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning!</p>
+<p>The <code>INTEGRALITY_CHECK_ENABLED</code> flag is intended to be enabled when using <code>*GenerateIntegralGraph</code> functions. Disabling it bypasses internal spectral verification and may cause these functions to return non-integral graphs.</p>
+</div>
+<ul>
+<li><code>QUIET</code> (<code>bool</code>):</li>
 </ul>
 <p>Controls the output format.</p>
 <ul>
@@ -793,6 +825,15 @@ Returns <code>true</code> if operation was successful, <code>false</code> if not
 <h2 id="heuristics-common-includeheuristics_commonh">Heuristics Common (<code>include/heuristics_common.h</code>)</h2>
 <ul>
 <li><code>void graphMakeRandomTree(Graph *g)</code>: Expects an empty graph. Creates a random tree structure using the algorithm described in <a href="../algorithms/">algorithms</a> section.</li>
+</ul>
+<h2 id="heuristics-evo-includeheuristics_evoh">Heuristics Evo (<code>include/heuristics_evo.h</code>)</h2>
+<ul>
+<li>
+<p><code>Graph *heuristicsEvoGenerateGraph(int n, int k, int populationSize, int generations)</code>: Generates a connected graph with <code>n</code> vertices and <code>k</code> edges using the algorithm described in <a href="../algorithms/">algorithms</a> section. Returns: a pointer to the generated graph or <code>NULL</code> if graph generation fails. Parameters <code>populationSize</code> and <code>generations</code> control the evolutionary algorithm behaviour.</p>
+</li>
+<li>
+<p><code>Graph *heuristicsEvoGenerateIntegralGraph(int n, int k, int populationSize, int generations)</code>: Repeatedly generates graphs using the evolutionary algorithm until a spectrally integral graph is found. Returns: a pointer to a spectrally integral graph or <code>NULL</code> if graph generation fails. Parameters <code>populationSize</code> and <code>generations</code> control the evolutionary algorithm behaviour.</p>
+</li>
 </ul>
 <h2 id="heuristics-greedy-includeheuristics_greedyh">Heuristics Greedy (<code>include/heuristics_greedy.h</code>)</h2>
 <ul>

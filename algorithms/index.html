@@ -366,6 +366,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#evolutionary-srcheuristics_evoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evolutionary (src/heuristics_evo.c)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -516,6 +527,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#evolutionary-srcheuristics_evoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evolutionary (src/heuristics_evo.c)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -594,6 +616,13 @@
 <p>intermediate values mix both approaches to the problem.</p>
 </li>
 </ul>
+<h3 id="evolutionary-srcheuristics_evoc">Evolutionary (<code>src/heuristics_evo.c</code>)</h3>
+<p>1) We initialize the population, generating it using the same algorithm.</p>
+<p>2) For each generation, all individuals in the population are evaluated using the integrality score.</p>
+<p>3) The best performing individuals are selected for the next generation.</p>
+<p>4) New candidate graphs are produced by applying random mutations to selected individuals (replacing one edge with another, while preserving the total number of edges).</p>
+<p>5) The population is iteratively updated.</p>
+<p>6) If integral checking is enabled, the resulting graph is tested for spectral integrality.</p>
 
 
 

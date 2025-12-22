@@ -588,18 +588,18 @@
   <code>sudo pacman -S gsl</code></li>
 </ul>
 <h3 id="compilation">Compilation</h3>
-<p>To build all binaries, run:</p>
-<pre><code>$ make all
-</code></pre>
-<p>The compiled executables will be placed in <code>bin/</code> directory.</p>
+<p>To build all binaries, run:
+<div class="highlight"><pre><span></span><code>$ make all
+</code></pre></div>
+The compiled executables will be placed in <code>bin/</code> directory.</p>
 <h3 id="cleaning-build-artifacts">Cleaning build artifacts</h3>
-<p>To clean build artifacts, run:</p>
-<pre><code>$ make clean
-</code></pre>
+<p>To clean build artifacts, run:
+<div class="highlight"><pre><span></span><code>$ make clean
+</code></pre></div></p>
 <h2 id="usage">Usage</h2>
 <p>Each algorithm is provided as a separate executable. All programs share the same command-line interface. Generated output is in the graph6 format.</p>
 <h3 id="general-form">General form</h3>
-<p><code>./graphy_&lt;algorithm&gt; [-qI] [-s &lt;seed&gt;] [-w &lt;outfile] n k</code></p>
+<p><code>./graphy_&lt;algorithm&gt; [-qI] [-s &lt;seed&gt;] [-w &lt;outfile] [-p &lt;population_size&gt;] [-g &lt;generations] n k</code></p>
 <p>where:</p>
 <ul>
 <li><code>n</code> (<strong>required</strong>): number of vertices</li>
@@ -608,6 +608,8 @@
 <li><code>-I</code>: Disables internal integrity checks, returning the first generated graph without verifying whether its spectrum is integral. Useful when piping the output to external tools (e.g. <code>sito5</code>).</li>
 <li><code>-s</code>: Sets the seed for initializing RNG.</li>
 <li><code>-w &lt;outfile&gt;</code>: Writes generated graphs to a file instead of a standard output</li>
+<li><code>-p &lt;population_size&gt;</code>: Sets the population size for evolutionary algorithm. Ignored by all other binaries.</li>
+<li><code>-p &lt;population_size&gt;</code>: Sets the generation count for evolutionary algorithm. Ignored by all other binaries.</li>
 </ul>
 <h3 id="examples">Examples</h3>
 <p>Generate a random connected integral graph with 6 vertices and 9 edges:</p>
