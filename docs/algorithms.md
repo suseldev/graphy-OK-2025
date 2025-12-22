@@ -51,3 +51,15 @@ The parameter `pRand` (found in `include/constants.h`, named `RANDGREEDY_PRAND`)
 
 - intermediate values mix both approaches to the problem.
 
+### Evolutionary (`src/heuristics_evo.c`)
+1) We initialize the population, generating it using the same algorithm.
+
+2) For each generation, all individuals in the population are evaluated using the integrality score.
+
+3) The best performing individuals are selected for the next generation.
+
+4) New candidate graphs are produced by applying random mutations to selected individuals (replacing one edge with another, while preserving the total number of edges).
+
+5) The population is iteratively updated.
+
+6) If integral checking is enabled, the resulting graph is tested for spectral integrality.

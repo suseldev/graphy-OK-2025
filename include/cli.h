@@ -11,6 +11,9 @@ typedef struct {
 	bool quiet;
 	bool integralityCheck;
 	const char *outFile;
+	// evo specific
+	int populationSize;
+	int generations;
 } CliConfig;
 
 CliConfig cliParse(int argc, char **argv);

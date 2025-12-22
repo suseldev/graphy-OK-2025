@@ -15,6 +15,10 @@
 
   - `outFile` (`const char *`): Path to the output file. If `NULL`, output is written to standard output
 
+  - `populationSize` (`int`): Parameter used by evolutionary algorithm. Ignored by all other algorithms.
+
+  - `generations` (`int`): Parameter used by evolutionary algorithm. Ignored by all other algorithms.
+
 - `CliConfig cliParse(int argc, char **argv)`: Parses command line arguments and returns populated CliConfig structure. Parameters `argc` and `argv` are argument count and argument vector passed to main. Returns fully initialized CliConfig structure. This function should terminate the program with an error message on invalid input.
 
 ## config (`include/config.h`)
@@ -25,6 +29,10 @@ Controls whether the generated graphs are filtered by the integrality condition 
   - `true`: All heuristic methods verify whether the generated graph is spectrally integral. Only graphs satisfying this condition will be returned.
 
   - `false`: All generated graphs are returned without internal verification. This mode is intended for external post-processing (for example piping the output to tools such as `sito5`).
+
+!!! warning "Warning!"
+    
+    The `INTEGRALITY_CHECK_ENABLED` flag is intended to be enabled when using `*GenerateIntegralGraph` functions. Disabling it bypasses internal spectral verification and may cause these functions to return non-integral graphs.
 
 - `QUIET` (`bool`):
 
@@ -74,6 +82,13 @@ Returns `true` if operation was successful, `false` if not.
 
 ## Heuristics Common (`include/heuristics_common.h`)
 - `void graphMakeRandomTree(Graph *g)`: Expects an empty graph. Creates a random tree structure using the algorithm described in [algorithms](algorithms.md) section.
+
+## Heuristics Evo (`include/heuristics_evo.h`)
+- `Graph *heuristicsEvoGenerateGraph(int n, int k, int populationSize, int generations)`: Generates a connected graph with `n` vertices and `k` edges using the algorithm described in [algorithms](algorithms.md) section. Returns: a pointer to the generated graph or `NULL` if graph generation fails. Parameters `populationSize` and `generations` control the evolutionary algorithm behaviour.
+
+- `Graph *heuristicsEvoGenerateIntegralGraph(int n, int k, int populationSize, int generations)`: Repeatedly generates graphs using the evolutionary algorithm until a spectrally integral graph is found. Returns: a pointer to a spectrally integral graph or `NULL` if graph generation fails. Parameters `populationSize` and `generations` control the evolutionary algorithm behaviour.
+
+
 
 ## Heuristics Greedy (`include/heuristics_greedy.h`)
 - `bool greadyAddBestEdge(Graph *g)`: Performs a single greedy step by selecting and adding the edge that maximizes the integrity score.

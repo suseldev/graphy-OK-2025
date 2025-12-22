@@ -14,10 +14,12 @@ CliConfig cliParse(int argc, char **argv) {
 		.seed = 0,
 		.quiet = false,
 		.integralityCheck = true,
-		.outFile = NULL
+		.outFile = NULL,
+		.populationSize = 500,
+		.generations = 1000
 	};
 	int opt;
-	while((opt = getopt(argc, argv, "qIs:w:")) != -1) {
+	while((opt = getopt(argc, argv, "qIs:w:p:g:")) != -1) {
 		switch(opt) {
 			case 'q':
 				cfg.quiet = true;
@@ -28,16 +30,22 @@ CliConfig cliParse(int argc, char **argv) {
 			case 's':
 				cfg.seed = (unsigned int)atoi(optarg);
 				break;
+			case 'p':
+				cfg.populationSize = atoi(optarg);
+				break;
+			case 'g':
+				cfg.generations = atoi(optarg);
+				break;
 			case 'w':
 				cfg.outFile = optarg;
 				break;
 			default:
-				fprintf(stderr, "Usage: %s [-qI] [-s rng_seed] [-w output_file] n k\n", argv[0]);
+				fprintf(stderr, "Usage: %s [-qI] [-s rng_seed] [-w output_file] [-p population_size] [-g generations] n k\n", argv[0]);
 				exit(1);
 			}
 	}
 	if(argc-optind<2) {
-		fprintf(stderr, "Usage: %s [-qI] [-s rng_seed] [-w output_file] n k\n", argv[0]);
+		fprintf(stderr, "Usage: %s [-qI] [-s rng_seed] [-w output_file] [-p population_size] [-g generations] n k\n", argv[0]);
 		exit(1);
 	}
 	cfg.n = atoi(argv[optind]);
@@ -51,7 +59,7 @@ CliConfig cliParse(int argc, char **argv) {
 		if(!QUIET) printf("[CLI] Using random seed\n");
 		srand((unsigned int)time(NULL));
 	}
-	if(!QUIET) printf("Config: n=%d, k=%d, seed=%d, quiet=%d, integralityCheck=%d outFile=%s \n", cfg.n, cfg.k, cfg.seed, cfg.quiet, cfg.integralityCheck, cfg.outFile);
+	if(!QUIET) printf("[CLI] Config: n=%d, k=%d, seed=%d, quiet=%d, integralityCheck=%d outFile=%s \n", cfg.n, cfg.k, cfg.seed, cfg.quiet, cfg.integralityCheck, cfg.outFile);
 	return cfg;
 }
 

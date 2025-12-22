@@ -28,7 +28,7 @@ $ make clean
 ## Usage
 Each algorithm is provided as a separate executable. All programs share the same command-line interface. Generated output is in the graph6 format.
 ### General form
-`./graphy_<algorithm> [-qI] [-s <seed>] [-w <outfile] n k`
+`./graphy_<algorithm> [-qI] [-s <seed>] [-w <outfile] [-p <population_size>] [-g <generations] n k`
 
 where:
 
@@ -38,6 +38,8 @@ where:
 - `-I`: Disables internal integrity checks, returning the first generated graph without verifying whether its spectrum is integral. Useful when piping the output to external tools (e.g. `sito5`).
 - `-s`: Sets the seed for initializing RNG.
 - `-w <outfile>`: Writes generated graphs to a file instead of a standard output
+- `-p <population_size>`: Sets the population size for evolutionary algorithm. Ignored by all other binaries.
+- `-p <population_size>`: Sets the generation count for evolutionary algorithm. Ignored by all other binaries.
 
 ### Examples
 Generate a random connected integral graph with 6 vertices and 9 edges:

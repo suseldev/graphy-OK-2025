@@ -19,9 +19,7 @@ int main(int argc, char **argv) {
         fprintf(stderr, "Error: Failed to generate graph!\n");
         return 1;
     }
-    if (!QUIET) {
-        printf("[Greedy] n=%d k=%d%s\n", cfg.n, cfg.k, cfg.integralityCheck ? " (integrality check enabled)":"");
-    }
+    if (!QUIET) printf("[Greedy] n=%d k=%d%s\n", cfg.n, cfg.k, cfg.integralityCheck ? " (integrality check enabled)":"");
     FILE *out = stdout;
     if (cfg.outFile) {
         out = fopen(cfg.outFile, "a");
