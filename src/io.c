@@ -17,8 +17,8 @@ void graphWriteToGraph6(const Graph *g, FILE *outputFile) {
 	int bitCount = 0;
 	int value = 0;
 
-	for(i=0; i<n; i++) {
-		for(j=i+1; j<n; j++) {
+	for(i=1; i<n; i++) {
+		for(j=0; j<i; j++) {
 			value = (value << 1) | (g->adj[i][j]?1:0);
 			bitCount++;
 
