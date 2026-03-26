@@ -39,7 +39,7 @@ where:
 - `-s`: Sets the seed for initializing RNG.
 - `-w <outfile>`: Writes generated graphs to a file instead of a standard output
 - `-p <population_size>`: Sets the population size for evolutionary algorithm. Ignored by all other binaries.
-- `-p <population_size>`: Sets the generation count for evolutionary algorithm. Ignored by all other binaries.
+- `-g <generations>`: Sets the generation count for evolutionary algorithm. Ignored by all other binaries.
 
 ### Examples
 Generate a random connected integral graph with 6 vertices and 9 edges:
