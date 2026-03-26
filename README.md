@@ -28,7 +28,7 @@ $ make clean
 ## Usage
 Each algorithm is provided as a separate executable. All programs share the same command-line interface. Generated output is in the graph6 format.
 ### General form
-`./graphy_<algorithm> [-qI] [-s <seed>] [-w <outfile] [-p <population_size>] [-g <generations] n k`
+`./graphy_<algorithm> [-qI] [-s <seed>] [-w <outfile>] [-p <population_size>] [-g <generations>] n k`
 
 where:
 
